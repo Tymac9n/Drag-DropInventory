@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -33,6 +30,7 @@ public class PlayerInventorySlot : ItemSlot, IDropHandler
             SwapItems(DragableItem.StartingSlot, draggedIndex);
         }
         else FillFromIndex(draggedIndex);
+        FindObjectOfType<PlayerInventory>().ShowInfo();
     }
 
     private void FillFromIndex(int? index)
@@ -67,5 +65,10 @@ public class PlayerInventorySlot : ItemSlot, IDropHandler
         FillFromIndex(itemIndex);
         startingSlot.GetComponent<PlayerInventorySlot>().FillFromIndex(draggedIndex);
 
+    }
+
+    public void ShowSlotInfo()
+    {
+        Debug.Log(gameObject.name + "index: " + itemIndex);
     }
 }

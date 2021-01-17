@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using JetBrains.Annotations;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerInventory : MonoBehaviour
@@ -14,5 +15,13 @@ public class PlayerInventory : MonoBehaviour
         //{
         //    child.GetComponent<PlayerInventorySlot>().FillSlot(child.GetSiblingIndex());
         //}
+    }
+
+    public void ShowInfo()
+    {
+        foreach (RectTransform child in gameObject.transform)
+        {
+            child.GetComponent<PlayerInventorySlot>().ShowSlotInfo();
+        }
     }
 }
