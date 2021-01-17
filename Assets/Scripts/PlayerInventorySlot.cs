@@ -18,7 +18,7 @@ public class PlayerInventorySlot : ItemSlot, IDropHandler
     {
         var draggedObject = DragableItem.DraggedObject;
         if (draggedObject == null) return;
-        int? draggedIndex = draggedObject.GetComponent<ItemSlot>().GetIndex();
+        int? draggedIndex = DragableItem.StartingSlot.GetIndex();
         var draggedType = gameItems.GetItemByID(draggedIndex).Type;
         if (draggedType != type)
         {
