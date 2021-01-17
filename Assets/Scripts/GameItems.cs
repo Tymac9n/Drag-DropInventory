@@ -17,7 +17,20 @@ public class GameItems : ScriptableObject
         if (id == null)
             return null;
         else
-            return id < AllItems.Count ? AllItems[(int)id] : null;
+        {
+            foreach (var item in AllItems)
+            {
+                if (item.ID == id)
+                    return item;
+            }
+
+            return null;
+        }
+    }
+
+    public int GetIDByIndex(int index)
+    {
+        return AllItems[index].ID;
     }
 
     //public Sprite GetSpriteByIndex()

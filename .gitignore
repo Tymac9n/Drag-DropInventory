@@ -6,3 +6,5 @@ Temp
 .vs/Drag-DropInventory/v15/Server/sqlite3/storage.ide-wal
 .vs/Drag-DropInventory/v15/Server/sqlite3/storage.ide-wal
 .vs
+*.ide-wal
+*.ide

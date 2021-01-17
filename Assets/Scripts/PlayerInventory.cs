@@ -17,7 +17,7 @@ public class PlayerInventory : MonoBehaviour
         //}
     }
 
-    public void ShowInfo()
+    public void ShowInfo() // выводит все слоты экипировки героя с индексом предметов
     {
         foreach (RectTransform child in gameObject.transform)
         {

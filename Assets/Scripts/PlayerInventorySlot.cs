@@ -30,7 +30,9 @@ public class PlayerInventorySlot : ItemSlot, IDropHandler
             SwapItems(DragableItem.StartingSlot, draggedIndex);
         }
         else FillFromIndex(draggedIndex);
-        FindObjectOfType<PlayerInventory>().ShowInfo();
+        // УДАЛИТЬ!!!!!
+        FindObjectOfType<PlayerInventory>().ShowInfo(); //  Для тестов выводит все слоты экипировки героя с индексом предмета   
+        // УДАЛИТЬ!!!
     }
 
     private void FillFromIndex(int? index)

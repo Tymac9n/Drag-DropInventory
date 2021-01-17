@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Item
 {
+    public int ID;
     public string Name;
     [SerializeField] private string imageName;
     public Sprite Image

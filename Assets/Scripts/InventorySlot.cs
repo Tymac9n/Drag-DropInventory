@@ -15,15 +15,15 @@ public class InventorySlot : ItemSlot
         return itemIndex;
     }
 
-    public void FillFromIndex(int index)
+    public void FillByID(int ID)
     {
-        var item = items.GetItemByID(index);
+        var item = items.GetItemByID(ID);
         if (item == null) return;
         type = item.Type;
         Title.text = item.Name;
         Description.text = item.Description;
         Image.sprite = item.Image;
-        itemIndex = index;
+        itemIndex = ID;
     }
     public ItemType GetType( )
     {
