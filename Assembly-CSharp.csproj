@@ -65,15 +65,16 @@
     <Compile Include="Assets\Scripts\Attributes.cs" />
     <Compile Include="Assets\Scripts\Connection.cs" />
     <Compile Include="Assets\Scripts\DragableItem.cs" />
-    <Compile Include="Assets\Scripts\GameItems.cs" />
     <Compile Include="Assets\Scripts\ImagesLoader.cs" />
-    <Compile Include="Assets\Scripts\InventorySlot.cs" />
-    <Compile Include="Assets\Scripts\Item.cs" />
-    <Compile Include="Assets\Scripts\ItemSlot.cs" />
-    <Compile Include="Assets\Scripts\PlayerInventory.cs" />
-    <Compile Include="Assets\Scripts\PlayerInventorySlot.cs" />
-    <Compile Include="Assets\Scripts\PlayerItems.cs" />
-    <Compile Include="Assets\Scripts\ScrolledInventory.cs" />
+    <Compile Include="Assets\Scripts\Inventory\AllItemsInventory.cs" />
+    <Compile Include="Assets\Scripts\Inventory\InventorySlot.cs" />
+    <Compile Include="Assets\Scripts\Inventory\ItemSlot.cs" />
+    <Compile Include="Assets\Scripts\Inventory\PlayerEquipment.cs" />
+    <Compile Include="Assets\Scripts\Inventory\PlayerEquipmentSlot.cs" />
+    <Compile Include="Assets\Scripts\Inventory\PlayerInventory.cs" />
+    <Compile Include="Assets\Scripts\Items\GameItems.cs" />
+    <Compile Include="Assets\Scripts\Items\Item.cs" />
+    <Compile Include="Assets\Scripts\Items\PlayerItems.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -10,11 +10,11 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public static ItemSlot StartingSlot;
     public static GameObject DraggedObject;
     private int? index;
-    private PlayerInventory playerInventory;
+    private PlayerEquipment _playerEquipment;
 
     public void Awake()
     {
-        playerInventory = FindObjectOfType<PlayerInventory>();
+        _playerEquipment = FindObjectOfType<PlayerEquipment>();
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -27,21 +27,21 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             return;
         }
         Sprite itemSprite = gameItems.GetItemByID(index).Image;
-        playerInventory.dragPrefabImage.sprite = itemSprite;
-        playerInventory.DragPrefab.SetActive(true);
+        _playerEquipment.dragPrefabImage.sprite = itemSprite;
+        _playerEquipment.DragPrefab.SetActive(true);
         StartingSlot = itemSlot;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         if (DraggedObject == null) return;
-        playerInventory.DragPrefab.transform.position = Input.mousePosition;
+        _playerEquipment.DragPrefab.transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         DraggedObject = null;
-        playerInventory.DragPrefab.SetActive(false);
+        _playerEquipment.DragPrefab.SetActive(false);
     }
 
 }

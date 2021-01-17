@@ -9,7 +9,7 @@ public class Connection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var inventory = playerItems.Inventory;
+        //var inventory = playerItems.Inventory;
         //foreach (var itemID in inventory)
         //{
         //    if (itemID < gameItems.AllItems.Count)
