@@ -55,7 +55,7 @@ public class PlayerInventorySlot : ItemSlot, IDropHandler
         itemIndex = null;
         Color slotColor = Image.color;
         slotColor.a = 0.05f;
-        Image.color = slotColor;
+        Image.color = slotColor; 
         Image.sprite = null;
     }
 
