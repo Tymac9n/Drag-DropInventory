@@ -9,13 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb7bfe4c19718b40b8e7c3d6981c093, type: 3}
-  m_Name: PlayerInventoryItems
+  m_Script: {fileID: 11500000, guid: 4a06b996989b36e4f8f5d4cbd33dfbe1, type: 3}
+  m_Name: EquippedItems
   m_EditorClassIdentifier: 
-  inventory:
-  - ID: 5
-    Count: 3
-  - ID: 4
-    Count: 5
-  - ID: 6
-    Count: 6
+  equippedItems: 000000000000000000000000000000000000000000000000

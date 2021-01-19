@@ -6,9 +6,17 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
 {
     [SerializeField] private GameItems gameItems;
     [SerializeField] private PlayerInventory inventoryItems;
+    [SerializeField] private EquippedItems equippedItems;
     [SerializeField] public Image Image;
     [SerializeField] private int? itemID;
     [SerializeField] private ItemType type;
+    [SerializeField] private int index;
+
+    public void Start()
+    {
+        index = transform.GetSiblingIndex();
+        FillFromID(equippedItems.GetIDByIndex(index));
+    }
 
     public override int? GetID()
     {
@@ -38,16 +46,16 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
             if(itemID!=null)
                 inventoryItems.AddItem((int) itemID);
         }
-        FillFromIndex(draggedID);
+        FillFromID(draggedID);
         // УДАЛИТЬ!!!!!
         FindObjectOfType<PlayerEquipment>().ShowInfo(); //  Для тестов выводит все слоты экипировки героя с индексом предмета   
         // УДАЛИТЬ!!!
     }
 
-    private void FillFromIndex(int? index)
+    private void FillFromID(int? ID)
     {
-        itemID = index;
-        var item = gameItems.GetItemByID(index);
+        itemID = ID;
+        var item = gameItems.GetItemByID(ID);
         if (item == null)
         {
             ClearPlayerInventorySlot();
@@ -57,6 +65,7 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
         Color thisColor = Image.color;
         thisColor.a = 1f;
         Image.color = thisColor;
+        equippedItems.SetIDByIndex((int)ID,index);
     }
 
     public void ClearPlayerInventorySlot()
@@ -66,6 +75,7 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
         slotColor.a = 0.05f;
         Image.color = slotColor;
         Image.sprite = null;
+        equippedItems.Clear(index);
     }
 
     private void SwapItems(ItemSlot startingSlot, int? draggedIndex)
@@ -73,13 +83,13 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
         int? tempIndex = draggedIndex;
         draggedIndex = itemID;
         itemID = tempIndex;
-        FillFromIndex(itemID);
-        startingSlot.GetComponent<PlayerEquipmentSlot>().FillFromIndex(draggedIndex);
+        FillFromID(itemID);
+        startingSlot.GetComponent<PlayerEquipmentSlot>().FillFromID(draggedIndex);
 
     }
 
     public void ShowSlotInfo()
     {
-        Debug.Log(gameObject.name + "index: " + itemID);
+        Debug.Log(gameObject.name + "ID: " + itemID);
     }
 }

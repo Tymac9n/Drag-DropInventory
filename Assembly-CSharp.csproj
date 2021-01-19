@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Inventory\PlayerEquipmentSlot.cs" />
     <Compile Include="Assets\Scripts\Inventory\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\Inventory\PlayerInventorySlot.cs" />
+    <Compile Include="Assets\Scripts\Items\EquippedItems.cs" />
     <Compile Include="Assets\Scripts\Items\GameItems.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\PlayerInventoryItems.cs" />
