@@ -2,14 +2,14 @@
 
 public class Connection : MonoBehaviour
 {
-    [SerializeField] private PlayerItems playerItems;
+    [SerializeField] private PlayerInventoryItems _playerInventory;
     [SerializeField] private GameItems gameItems;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //var inventory = playerItems.Inventory;
+        //var inventory = _playerInventory.Inventory;
         //foreach (var itemID in inventory)
         //{
         //    if (itemID < gameItems.AllItems.Count)

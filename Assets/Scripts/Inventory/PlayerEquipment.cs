@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class PlayerEquipment : MonoBehaviour
 {
-    [SerializeField] private PlayerItems playerItems;
+    [SerializeField] private PlayerInventoryItems _playerInventory;
     [SerializeField] public GameObject DragPrefab;
     [SerializeField] public Image dragPrefabImage;
 
