@@ -7,14 +7,15 @@ public class InventorySlot : ItemSlot
     [SerializeField] public Image Image;
     [SerializeField] private Text title;
     [SerializeField] private Text description;
-    [SerializeField] private Text countText;
-    [SerializeField] private int count;
-    [SerializeField] private int itemIndex;
+    //[SerializeField] private Text countText;
+    //[SerializeField] private int count;
+    [SerializeField] private int itemID;
     [SerializeField] private ItemType type;
+    //[SerializeField] private bool countable;
 
-    public override int? GetIndex()
+    public override int? GetID()
     {
-        return itemIndex;
+        return itemID;
     }
 
     public void FillByID(int ID)
@@ -25,43 +26,53 @@ public class InventorySlot : ItemSlot
         title.text = item.Name;
         description.text = item.Description;
         Image.sprite = item.Image;
-        itemIndex = ID;
+        itemID = ID;
     }
 
-    public void SetCount(int amount)
-    {
-        count = amount;
-        if (count > 1) ShowCount();
-        countText.text = count.ToString();
-    }
+    //public void SetCount(int amount)
+    //{
+    //    count = amount;
+    //    if (count > 1) ShowCount();
+    //    countText.text = count.ToString();
+    //}
 
-    public void IncrementCount()
-    {
-        count++;
-        if (count > 1) ShowCount();
-        countText.text = count.ToString();
-    }
+    //public void IncrementCount()
+    //{
+    //    count++;
+    //    if (count > 1) ShowCount();
+    //    countText.text = count.ToString();
+    //}
 
-    public void DecrementCount()
-    {
-        count--;
-        if(count < 1) Destroy(gameObject);
-        countText.text = count.ToString();
-        if (count < 2) HideCount();
-    }
+    //public void DecrementCount()
+    //{
+    //    count--;
+    //    if(count < 1) Destroy(gameObject);
+    //    countText.text = count.ToString();
+    //    if (count < 2) HideCount();
+    //}
 
     public ItemType GetType( )
     {
         return type;
     }
 
-    private void ShowCount()
-    {
-        countText.enabled = true;
-    }
+    //public void SetCountable(bool countable)
+    //{
+    //    this.countable = countable;
+    //}
 
-    private void HideCount()
-    {
-        countText.enabled = false;
-    }
+    //public bool IsCountable()
+    //{
+    //    return countable;
+    //}
+
+    //private void ShowCount()
+    //{
+    //    countText.enabled = true;
+    //}
+
+    //private void HideCount()
+    //{
+    //    countText.enabled = false;
+    //}
 }

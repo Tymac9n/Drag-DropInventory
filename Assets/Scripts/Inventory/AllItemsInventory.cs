@@ -15,9 +15,10 @@ public class AllItemsInventory : MonoBehaviour
         {
             var ID = items.GetIDByIndex(itemIndex);
             var slot = Instantiate(itemPrefab);
-            slot.GetComponent<InventorySlot>().FillByID(ID);
             slot.name = items.GetItemByID(ID).Name;
             slot.transform.SetParent(content, false);
+            var slotData = slot.GetComponent<InventorySlot>();
+            slotData.FillByID(ID);
         }
     }
 }

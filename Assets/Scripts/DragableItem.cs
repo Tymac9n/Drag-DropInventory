@@ -17,7 +17,7 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void OnBeginDrag(PointerEventData eventData)
     {
         DraggedObject = gameObject;
-        index = itemSlot.GetIndex();
+        index = itemSlot.GetID();
         if (index == null)
         {
             DraggedObject = null;
@@ -39,6 +39,11 @@ public class DragableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     public void OnEndDrag(PointerEventData eventData)
     {
         DraggedObject = null;
+        _playerEquipment.DragPrefab.SetActive(false);
+    }
+
+    public void HideDraggedPrefab()
+    {
         _playerEquipment.DragPrefab.SetActive(false);
     }
 

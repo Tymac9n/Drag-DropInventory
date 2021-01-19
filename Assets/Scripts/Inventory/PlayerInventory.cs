@@ -28,7 +28,7 @@ public class PlayerInventory : MonoBehaviour, IDropHandler
         var slot = Instantiate(itemPrefab);
         slot.name = ID.ToString();
         slot.transform.SetParent(content, false);
-        var SlotData = slot.GetComponent<InventorySlot>();
+        var SlotData = slot.GetComponent<PlayerInventorySlot>();
         SlotData.FillByID(ID);
         SlotData.SetCount(_playerInventory.GetItemCountByIndex(listIndex));
     }
@@ -36,18 +36,26 @@ public class PlayerInventory : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         var draggedObject = DragableItem.DraggedObject;
-        if (draggedObject == null) return;
-        var draggedID = (int)DragableItem.StartingSlot.GetIndex();
+        if (draggedObject == null || DragableItem.StartingSlot.GetComponent<PlayerInventorySlot>()) return;
+        var draggedID = (int)DragableItem.StartingSlot.GetID();
         AddItem(draggedID);
+        if(draggedObject.GetComponent<PlayerEquipmentSlot>())
+            draggedObject.GetComponent<PlayerEquipmentSlot>().ClearPlayerInventorySlot();
     }
 
-    private void AddItem(int ID)
+    public void AddItem(int ID)
     {
         if (_playerInventory.AddNewItem(ID))
         {
             CreateNewSlot(ID, _playerInventory.PlayerItemsCount()-1);
+            return;
         }
-        // перебрать всех в иерархии по имени найти id
+
+        foreach (RectTransform chield in content)
+        {
+            if(chield.name == ID.ToString())
+                chield.GetComponent<PlayerInventorySlot>().IncrementCount();
+        }
     }
 
 }

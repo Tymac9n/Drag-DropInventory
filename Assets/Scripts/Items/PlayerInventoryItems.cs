@@ -5,21 +5,34 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemsOnPlayer", menuName = "Items/PlayerInventoryItems")]
 public class PlayerInventoryItems : ScriptableObject
 {
-    [SerializeField] private List<ItemsInInventory> Inventory;
+    [SerializeField] private List<ItemsInInventory> inventory;
 
     public int PlayerItemsCount()
     {
-        return Inventory.Count;
+        return inventory.Count;
     }
 
     public int GetItemIDByIndex(int index)
     {
-        return Inventory[index].ID;
+        return inventory[index].ID;
     }
 
     public int GetItemCountByIndex(int index)
     {
-        return Inventory[index].Count;
+        return inventory[index].Count;
+    }
+
+    public void DecreaseItem(int ID)
+    {
+        foreach (var item in inventory)
+        {
+            if (item.ID == ID)
+            {
+                item.Count--;
+                if (item.Count < 1) inventory.Remove(item);
+                return;
+            }
+        }
     }
 
     public bool AddNewItem(int ID)
@@ -29,7 +42,7 @@ public class PlayerInventoryItems : ScriptableObject
             var newItem = new ItemsInInventory();
             newItem.ID = ID;
             newItem.Count = 1;
-            Inventory.Add(newItem);
+            inventory.Add(newItem);
             return true;
         }
         return false;
@@ -37,7 +50,7 @@ public class PlayerInventoryItems : ScriptableObject
 
     private bool AddCount(int ID)
     {
-        foreach (var item in Inventory)
+        foreach (var item in inventory)
         {
             if (item.ID == ID)
             {
@@ -45,7 +58,6 @@ public class PlayerInventoryItems : ScriptableObject
                 return true;
             }
         }
-
         return false;
     }
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ItemSlot : MonoBehaviour
 {
-    private int itemIndex;
+    private int itemID;
 
-    public virtual int? GetIndex()
+    public virtual int? GetID()
     {
-        return itemIndex;
+        return itemID;
     }
 }

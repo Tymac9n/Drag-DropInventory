@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 5107506368826095173}
   - component: {fileID: 1418194984397224318}
   m_Layer: 5
-  m_Name: PlayerInventorySlot
+  m_Name: PlayerEpuimentSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameItems: {fileID: 11400000, guid: 2442b1fe0a281c141bca9e0addcecf86, type: 2}
+  inventoryItems: {fileID: 11400000, guid: 2840f00f6d8afc94397c790381fe9380, type: 2}
   Image: {fileID: 5107506368150776897}
   type: 0
 --- !u!1 &5107506369407845154
