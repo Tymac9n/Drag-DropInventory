@@ -244,8 +244,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 75, y: -34.372}
-  m_SizeDelta: {x: 250.00012, y: 48.74353}
+  m_AnchoredPosition: {x: 76.28, y: -34.372}
+  m_SizeDelta: {x: 234.42438, y: 48.74353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9009462654816424800
 CanvasRenderer:
@@ -278,7 +278,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
@@ -287,7 +287,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Title
+  m_Text: "\u0414\u043E\u0441\u043F\u0435\u0445\u0438 \u041B\u0435\u0433\u0438\u043E\u043D\u0435\u0440\u0430"
 --- !u!114 &6158320592776168806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3711006, g: 0.5188679, b: 0.20803666, a: 0.65882355}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:

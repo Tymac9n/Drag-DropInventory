@@ -62,8 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\DELETE\Delete.cs" />
-    <Compile Include="Assets\DELETE\Test.cs" />
     <Compile Include="Assets\Scripts\Attributes.cs" />
     <Compile Include="Assets\Scripts\Connection.cs" />
     <Compile Include="Assets\Scripts\DragableItem.cs" />

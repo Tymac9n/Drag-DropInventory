@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a06b996989b36e4f8f5d4cbd33dfbe1, type: 3}
   m_Name: EquippedItems
   m_EditorClassIdentifier: 
-  equippedItems: 000000000000000000000000000000000000000000000000
+  equippedItems: 060000000100000003000000000000000500000000000000

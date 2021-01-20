@@ -244,8 +244,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 75, y: -34.372}
-  m_SizeDelta: {x: 250.00012, y: 48.74353}
+  m_AnchoredPosition: {x: 76.28, y: -34.372}
+  m_SizeDelta: {x: 234.42438, y: 48.74353}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9009462654816424800
 CanvasRenderer:
@@ -278,7 +278,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7264151, g: 0.49542958, b: 0.07195621, a: 0.6117647}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -405,9 +405,7 @@ MonoBehaviour:
   Image: {fileID: 8051859008295370861}
   title: {fileID: 1079862420073872603}
   description: {fileID: 6013045286190059459}
-  countText: {fileID: 8647860447650275370}
-  count: 0
-  itemIndex: 0
+  itemID: 0
   type: 0
 --- !u!114 &8364498392939892034
 MonoBehaviour:
