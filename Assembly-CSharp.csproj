@@ -77,6 +77,8 @@
     <Compile Include="Assets\Scripts\Items\GameItems.cs" />
     <Compile Include="Assets\Scripts\Items\Item.cs" />
     <Compile Include="Assets\Scripts\Items\PlayerInventoryItems.cs" />
+    <Compile Include="Assets\Scripts\SoundController.cs" />
+    <Compile Include="Assets\Scripts\TrashBin.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

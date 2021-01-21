@@ -7,6 +7,7 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
     [SerializeField] private GameItems gameItems;
     [SerializeField] private PlayerInventory inventoryItems;
     [SerializeField] private EquippedItems equippedItems;
+    [SerializeField] private SoundController sound;
     [SerializeField] public Image Image;
     [SerializeField] public Image CrossImage;
     [SerializeField] private int? itemID;
@@ -36,14 +37,11 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
         if (draggedObject == null) return;
         int? draggedID = DragableItem.StartingSlot.GetID();
         var draggedType = gameItems.GetItemByID(draggedID).Type;
-        if (draggedType != type)
-        {
-            Debug.Log("Нельзя поместить предмет с типом " + draggedType + " в ячейку с типом " + type); // error window
-            return;
-        }
+        if (draggedType != type) return;
         if (draggedObject.GetComponent<PlayerEquipmentSlot>())
         {
             SwapItems(DragableItem.StartingSlot, draggedID);
+            sound.PlaySound(itemID);
             return;
         }
         if (DragableItem.StartingSlot.GetComponent<PlayerInventorySlot>())
@@ -54,6 +52,7 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
                 inventoryItems.AddItem((int) itemID);
         }
         FillFromID(draggedID);
+        sound.PlaySound(itemID);
     }
 
     private void FillFromID(int? ID)
@@ -62,7 +61,7 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
         var item = gameItems.GetItemByID(ID);
         if (item == null)
         {
-            ClearPlayerInventorySlot();
+            ClearSlot();
             return;
         }
         Image.sprite = item.Image;
@@ -72,7 +71,7 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
         equippedItems.SetIDByIndex((int)ID,index);
     }
 
-    public void ClearPlayerInventorySlot()
+    public void ClearSlot()
     {
         itemID = null;
         Color slotColor = Image.color;
@@ -82,32 +81,25 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
         equippedItems.Clear(index);
     }
 
-    private void SwapItems(ItemSlot startingSlot, int? draggedIndex)
+    private void SwapItems(ItemSlot startingSlot, int? draggedID)
     {
-        int? tempIndex = draggedIndex;
-        draggedIndex = itemID;
+        int? tempIndex = draggedID;
+        draggedID = itemID;
         itemID = tempIndex;
         FillFromID(itemID);
-        startingSlot.GetComponent<PlayerEquipmentSlot>().FillFromID(draggedIndex);
+        startingSlot.GetComponent<PlayerEquipmentSlot>().FillFromID(draggedID);
 
     }
 
     private void OnDraggedItem(int? ID)
     {
-        if (ID != null)
-        {
-            if (gameItems.GetItemByID(ID).Type != type) UnActiveSlot();
-        }
-        else ActiveSlot();
+        if (ID == null)
+            IsActiveSlot(true);
+        else IsActiveSlot(gameItems.GetItemByID(ID).Type == type);
     }
 
-    private void UnActiveSlot()
+    private void IsActiveSlot(bool IsEqualType)
     {
-        CrossImage.enabled = true;
-    }
-
-    private void ActiveSlot()
-    {
-        CrossImage.enabled = false;
+        CrossImage.enabled = !IsEqualType;
     }
 }

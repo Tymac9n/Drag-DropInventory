@@ -32,9 +32,4 @@ public class GameItems : ScriptableObject
     {
         return AllItems[index].ID;
     }
-
-    //public Sprite GetSpriteByIndex()
-    //{
-    //    return Sprite
-    //}
 }

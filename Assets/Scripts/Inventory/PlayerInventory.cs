@@ -40,7 +40,7 @@ public class PlayerInventory : MonoBehaviour, IDropHandler
         var draggedID = (int)DragableItem.StartingSlot.GetID();
         AddItem(draggedID);
         if(draggedObject.GetComponent<PlayerEquipmentSlot>())
-            draggedObject.GetComponent<PlayerEquipmentSlot>().ClearPlayerInventorySlot();
+            draggedObject.GetComponent<PlayerEquipmentSlot>().ClearSlot();
     }
 
     public void AddItem(int ID)
