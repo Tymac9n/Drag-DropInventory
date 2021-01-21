@@ -8,14 +8,21 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
     [SerializeField] private PlayerInventory inventoryItems;
     [SerializeField] private EquippedItems equippedItems;
     [SerializeField] public Image Image;
+    [SerializeField] public Image CrossImage;
     [SerializeField] private int? itemID;
     [SerializeField] private ItemType type;
     [SerializeField] private int index;
 
     public void Start()
     {
+        DragableItem.OnDraggedItem += OnDraggedItem;
         index = transform.GetSiblingIndex();
         FillFromID(equippedItems.GetIDByIndex(index));
+    }
+
+    public void OnDestroy()
+    {
+        DragableItem.OnDraggedItem -= OnDraggedItem;
     }
 
     public override int? GetID()
@@ -47,9 +54,6 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
                 inventoryItems.AddItem((int) itemID);
         }
         FillFromID(draggedID);
-        // УДАЛИТЬ!!!!!
-        FindObjectOfType<PlayerEquipment>().ShowInfo(); //  Для тестов выводит все слоты экипировки героя с индексом предмета   
-        // УДАЛИТЬ!!!
     }
 
     private void FillFromID(int? ID)
@@ -88,8 +92,22 @@ public class PlayerEquipmentSlot : ItemSlot, IDropHandler
 
     }
 
-    public void ShowSlotInfo()
+    private void OnDraggedItem(int? ID)
     {
-        Debug.Log(gameObject.name + "ID: " + itemID);
+        if (ID != null)
+        {
+            if (gameItems.GetItemByID(ID).Type != type) UnActiveSlot();
+        }
+        else ActiveSlot();
+    }
+
+    private void UnActiveSlot()
+    {
+        CrossImage.enabled = true;
+    }
+
+    private void ActiveSlot()
+    {
+        CrossImage.enabled = false;
     }
 }
